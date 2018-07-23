@@ -30,7 +30,7 @@ final class NetworkUtils {
             return null;
         }
 
-        List<News> sheets = new ArrayList<>();
+        List<News> news = new ArrayList<>();
 
         try {
 
@@ -55,19 +55,18 @@ final class NetworkUtils {
                         JSONObject titleJSON = tagsJSONArray.getJSONObject(j);
                         author = titleJSON.getString("webTitle");
                     }
-
                 }
 
-                News sheetItem = new News(title, sectionName, author, publishedDate, url);
+                News newsItem = new News(title, sectionName, author, publishedDate, url);
 
-                sheets.add(sheetItem);
+                news.add(newsItem);
             }
 
         } catch (JSONException e) {
             Log.e(LOG_TAG, "Problem parsing the News JSON results", e);
         }
 
-        return sheets;
+        return news;
     }
 
     private static URL createUrl(String stringUrl) {
