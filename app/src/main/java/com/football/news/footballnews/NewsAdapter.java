@@ -30,6 +30,7 @@ class NewsAdapter extends ArrayAdapter<News> {
     public View getView(int position, View listItemView, @NonNull ViewGroup parent) {
         if (listItemView == null) {
             listItemView = LayoutInflater.from(getContext()).inflate(R.layout.sheet_list_item, parent, false);
+        }
 
             final News currentNews = getItem(position);
 
@@ -55,7 +56,7 @@ class NewsAdapter extends ArrayAdapter<News> {
                     }
                 }
             });
-        }
+
         return listItemView;
     }
 
