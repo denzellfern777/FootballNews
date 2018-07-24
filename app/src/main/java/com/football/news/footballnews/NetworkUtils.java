@@ -89,10 +89,12 @@ final class NetworkUtils {
 
         HttpURLConnection urlConnection = null;
         InputStream inputStream = null;
+        int readTimeOut = 10000;
+        int connectionTimeOut = 15000;
         try {
             urlConnection = (HttpURLConnection) url.openConnection();
-            urlConnection.setReadTimeout(10000);
-            urlConnection.setConnectTimeout(15000);
+            urlConnection.setReadTimeout(readTimeOut);
+            urlConnection.setConnectTimeout(connectionTimeOut);
             urlConnection.setRequestMethod("GET");
             urlConnection.connect();
 
